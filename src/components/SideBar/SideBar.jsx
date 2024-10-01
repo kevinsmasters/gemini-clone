@@ -2,14 +2,14 @@ import './SideBar.css';
 import {assets} from '../../assets/assets';
 import { useState } from 'react';
 
-const Sidebar = () => {
+const SideBar = () => {
 
   const [extended, setExtended] = useState(false)
 
   return (
     <div className="sidebar">
       <div className="top">
-        <img className="menu" src={assets.menu_icon} alt="" onClick={()=> setExtended(prev=>!prev)} />
+        <img className="menu" src={assets.menu_icon} alt="" onClick={()=> setExtended(hide=>!hide)} />
         <div className="new-chat">
           <img src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
@@ -45,4 +45,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default SideBar
