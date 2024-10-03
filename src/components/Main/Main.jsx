@@ -10,7 +10,7 @@ const Main = () => {
       </div>
       <div className="main-container">
         <div className="greet">
-          <p><span>Meowdy, </span></p>
+          <p><span>Meowdy, Dev.</span></p>
         </div>
       </div>
     </div>
