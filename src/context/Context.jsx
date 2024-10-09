@@ -5,11 +5,11 @@ const Context = createContext();
 
 const ContextProvider = (props) => {
 
-  const onSend = async (prompt) => {
+  const onSent = async (prompt) => {
     await runChat(prompt)
   }
 
-  onSend("what is reactjs")
+  onSent("what is reactjs")
   const contextValue = {
 
   }
