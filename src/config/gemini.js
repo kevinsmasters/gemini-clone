@@ -4,15 +4,15 @@
  * $ npm install @google/generative-ai
  */
 
-const {
+import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
-} = require("@google/generative-ai");
+} from "@google/generative-ai"
 
 
 const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = process.env.VITE_GEMINI_API_KEY;
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 async function runChat() {
   const genAI = new GoogleGenerativeAI(API_KEY);
