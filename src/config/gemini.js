@@ -10,50 +10,31 @@ import {
   HarmBlockThreshold,
 } from "@google/generative-ai"
 
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
 
-const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.0-pro",
+});
 
-async function runChat() {
-  const genAI = new GoogleGenerativeAI(API_KEY);
-  const model= genAI.getGenerativeModel({ model: MODEL_NAME});
+const generationConfig = {
+  temperature: 0.9,
+  topP: 1,
+  maxOutputTokens: 2048,
+  responseMimeType: "text/plain",
+};
 
-  const generationConfig = {
-    temperature: 0.9,
-    topK: 1,
-    topP: 1,
-    maxOutputTokens: 2048,
-  }
-
-  const safetySettings = [
-    {
-      category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-      threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
-    }
-  ];
-
-  const chat = model.startChat({
+async function runChat(prompt) {
+  const chatSession = model.startChat({
     generationConfig,
-    safetySettings,
+ // safetySettings: Adjust safety settings
+ // See https://ai.google.dev/gemini-api/docs/safety-settings
     history: [
-    ]
-  })
+    ],
+  });
 
-  const result = await chat.sendMessage(prompt)
-  const response = result.response;
-  console.log(response.text())
+  const result = await chatSession.sendMessage(prompt);
+  console.log(result.response.text());
 }
 
 export default runChat;
