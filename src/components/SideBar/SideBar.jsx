@@ -5,12 +5,12 @@ import { Context } from '../../context/Context';
 
 const SideBar = () => {
 
-  const [extended, setExtended] = useState(false)
-  const {onSent, previousPrompt, setRecentPrompt, newChat} = useContext(Context)
+  const [extended, setExtended] = useState(false);
+  const {onSent, previousPrompt, setRecentPrompt, newChat} = useContext(Context);
 
   const loadPrompt = async (prompt) => {
-    setRecentPrompt(prompt)
-    await onSent(prompt)
+    setRecentPrompt(prompt);
+    await onSent(prompt);
   }
 
   return (
@@ -31,7 +31,7 @@ const SideBar = () => {
                 <img src={assets.message_icon} alt="" />
                 <p>{item.slice(0,18)} ...</p>
               </div>
-            )
+            );
           })}
           
         </div>
@@ -54,7 +54,7 @@ const SideBar = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SideBar
+export default SideBar;

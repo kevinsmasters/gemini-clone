@@ -5,7 +5,15 @@ import { useContext } from 'react';
 
 const Main = () => {
 
-    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context)
+    const {
+      onSent,
+      recentPrompt,
+      showResult,
+      loading,
+      resultData,
+      setInput,
+      input
+    } = useContext(Context);
 
   return (
     <div className="main">
@@ -81,7 +89,7 @@ const Main = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Main
+export default Main;

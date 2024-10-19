@@ -1,5 +1,5 @@
-import Main from "./components/Main/Main"
-import SideBar from "./components/SideBar/SideBar"
+import Main from "./components/Main/Main";
+import SideBar from "./components/SideBar/SideBar";
 
 const App = () => {
   return (
@@ -7,7 +7,7 @@ const App = () => {
       <SideBar />
       <Main />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
