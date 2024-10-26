@@ -21,8 +21,7 @@ const SideBar = () => {
           <img src={assets.plus_icon} alt="" />
           {extended && (
             <p>
-
-              {showResult && resultData ? <>New Chat</> : <>Return</>}
+              {showResult ? <>New Chat</> : <>Back</>}
             </p>
           )}
         </div>
